@@ -8,7 +8,8 @@ gitrepos:
     namespace: fleet-local
     paths:
       - charts/fleet-workspace-controller
-  - name: gorizond-cluster
+  - name: fleet-gorizond-cluster
+    repo: gorizond-cluster
     description: k3s/headscale api saas
     namespace: fleet-local
     paths:
