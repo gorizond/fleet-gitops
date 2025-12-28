@@ -32,11 +32,19 @@ helmrepos:
       values:
         replicaCount: 1
   - name: gorizond-ui
-    description: gorizond cluster ui
+    description: Gorizond UI for gorizond clusters
     namespace: cattle-ui-plugin-system
     helm:
       releaseName: gorizond-ui
       repo: https://gorizond.github.io/rancher-ui
       chart: gorizond-ui
       version: 0.1.27
+  - name: fleet-workspace-ui
+    description: Gorizond UI for split fleet workspaces per users with roles
+    namespace: cattle-ui-plugin-system
+    helm:
+      releaseName: fleet-workspace-ui
+      repo: https://gorizond.github.io/fleet-workspace-ui
+      chart: fleet-workspace-ui
+      version: 0.1.5
       
