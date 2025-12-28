@@ -54,11 +54,3 @@ helmrepos:
       releaseName: gorizond-ui
       repo: https://gorizond.github.io/rancher-ui
       chart: gorizond-ui
-  - name: fleet-workspace-ui
-    description: Gorizond UI for split fleet workspaces per users with roles
-    namespace: cattle-ui-plugin-system
-    helm:
-      releaseName: fleet-workspace-ui
-      repo: https://gorizond.github.io/fleet-workspace-ui
-      chart: fleet-workspace-ui
-      

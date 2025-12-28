@@ -1,0 +1,6 @@
+defaultNamespace: cattle-ui-plugin-system
+
+helm:
+  releaseName: fleet-workspace-ui
+  repo: https://gorizond.github.io/fleet-workspace-ui
+  chart: fleet-workspace-ui
