@@ -32,7 +32,7 @@ helmrepos:
       values:
         replicaCount: 1
   - name: gorizond-ui
-    description: Split fleet workspaces per users with roles
+    description: gorizond cluster ui
     namespace: cattle-ui-plugin-system
     helm:
       releaseName: gorizond-ui
