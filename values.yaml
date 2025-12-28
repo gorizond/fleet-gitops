@@ -25,7 +25,7 @@ gitrepos:
     namespace: fleet-local
     clientSecretName: auth-rnmxl
     repo_domain: https://gitlab.com
-    repo: gorizond/gitops
+    repo_path: gorizond/gitops
     imageScanCommit:
       authorEmail: i@negash.ru
       authorName: Fleet Bot
