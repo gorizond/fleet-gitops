@@ -21,8 +21,12 @@ metadata:
     field.cattle.io/description: {{ $gitrepo.description | quote }}
   {{- end }}
 spec:
-  helm: {{ $gitrepo.helm }}
-  dependsOn: {{ $gitrepo.dependsOn }}
+  helm:
+{{- toYaml $gitrepo.helm | nindent 4 }}
+  {{- if $gitrepo.dependsOn }}
+  dependsOn:
+{{- toYaml $gitrepo.dependsOn | nindent 4 }}
+  {{- end }}
   {{- if $gitrepo.targetNamespace }}
   namespace: {{ $gitrepo.targetNamespace }}
   {{- end }}

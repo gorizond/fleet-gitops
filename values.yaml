@@ -3,3 +3,15 @@ gitrepos:
   - name: fleet-cert-manager
     description: TLS + letsencrypt
     namespace: fleet-local
+helmrepos:
+  # fleet-local
+  - name: jspolicy
+    description: JS mutator/validator k8s
+    namespace: fleet-local
+    helm:
+      releaseName: jspolicy
+      repo: https://charts.loft.sh
+      chart: jspolicy
+      values:
+        replicaCount: 1
+  

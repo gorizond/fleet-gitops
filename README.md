@@ -31,6 +31,16 @@ Edit `values.yaml`:
   - `clusterSelector`: label map for an additional selector target
   - `targets`: list of additional label keys (each expects `<key>=enabled`)
 
+### `helmrepos[]` fields
+
+- `name` (required): resource name and default cluster-label key.
+- `namespace` (optional, default `fleet-default`): use `fleet-local` for local-only HelmOps.
+- `description`, `labels` (optional): metadata helpers.
+- `helm` (required): YAML object rendered into `HelmOp.spec.helm` (for example: `repo`, `chart`, `releaseName`, `version`, `values`).
+- `dependsOn` (optional): YAML list rendered into `HelmOp.spec.dependsOn`.
+- `targetNamespace` (optional): rendered into `HelmOp.spec.namespace`.
+- Targeting helpers (optional): `clusterGroups`, `clusterSelector`, `targets` (same behavior as `gitrepos[]`).
+
 ### Cluster targeting (labels)
 
 For every downstream entry that is **not** in `fleet-local`, the chart always adds a target selector matching clusters labelled:
