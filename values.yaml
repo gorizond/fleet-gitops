@@ -20,6 +20,17 @@ gitrepos:
     namespace: fleet-local
     paths:
       - charts
+  - name: docusaurus
+    description: Documentaion + Blog
+    namespace: fleet-local
+    clientSecretName: auth-rnmxl
+    repo_domain: https://gitlab.com
+    repo: gorizond/gitops
+    imageScanCommit:
+      authorEmail: i@negash.ru
+      authorName: Fleet Bot
+      messageTemplate: 'chore(fleet): ImageScan update image'
+    imageScanInterval: 15s
 helmrepos:
   # fleet-local
   - name: jspolicy
