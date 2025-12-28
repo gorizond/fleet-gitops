@@ -3,6 +3,9 @@ gitrepos:
   - name: fleet-cert-manager
     description: TLS + letsencrypt
     namespace: fleet-local
+  - name: fleet-workspace-controller
+    description: Split fleet workspaces per users with roles
+    namespace: fleet-local
 helmrepos:
   # fleet-local
   - name: jspolicy
