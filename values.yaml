@@ -33,9 +33,10 @@ helmrepos:
         replicaCount: 1
   - name: gorizond-ui
     description: Split fleet workspaces per users with roles
-    namespace: fleet-local
+    namespace: cattle-ui-plugin-system
     helm:
       releaseName: gorizond-ui
       repo: https://gorizond.github.io/rancher-ui
       chart: gorizond-ui
       version: 0.1.27
+      
