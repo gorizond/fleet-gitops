@@ -1,0 +1,6 @@
+defaultNamespace: cattle-ui-plugin-system
+
+helm:
+  releaseName: gorizond-ui
+  repo: https://gorizond.github.io/rancher-ui
+  chart: gorizond-ui

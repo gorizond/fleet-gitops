@@ -47,10 +47,3 @@ helmrepos:
       chart: jspolicy
       values:
         replicaCount: 1
-  - name: gorizond-ui
-    description: Gorizond UI for gorizond clusters
-    namespace: cattle-ui-plugin-system
-    helm:
-      releaseName: gorizond-ui
-      repo: https://gorizond.github.io/rancher-ui
-      chart: gorizond-ui
