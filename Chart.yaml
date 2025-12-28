@@ -1,0 +1,5 @@
+apiVersion: v2
+name: GitOps
+description: GitOps repository for provisioning other gitops repositories
+version: 0.0.1
+appVersion: 0.0.0

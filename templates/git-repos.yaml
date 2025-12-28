@@ -1,0 +1,77 @@
+{{- range $index, $gitrepo := .Values.gitrepos }}
+{{- if gt $index 0 }}
+---
+{{- end }}
+apiVersion: fleet.cattle.io/v1alpha1
+kind: GitRepo
+metadata:
+  name: {{ $gitrepo.name }}
+  namespace: {{ if $gitrepo.namespace -}}{{ $gitrepo.namespace }}{{- else -}}fleet-default{{- end }}
+  labels:
+    app.kubernetes.io/name: {{ $gitrepo.name }}
+    app.kubernetes.io/component: git-repo
+    backstage.io/kubernetes-id: local
+    {{- if $gitrepo.labels }}
+    {{- range $key, $value := $gitrepo.labels }}
+    {{ $key }}: {{ $value | quote }}
+    {{- end }}
+    {{- end }}
+  {{- if $gitrepo.description }}
+  annotations:
+    field.cattle.io/description: {{ $gitrepo.description | quote }}
+  {{- end }}
+spec:
+  branch: main
+  repo: {{ if $gitrepo.repo_domain -}}{{ $gitrepo.repo_domain }}{{- else -}}https://github.com{{- end }}/{{ if $gitrepo.repo_path -}}{{ $gitrepo.repo_path }}{{- else -}}gorizond{{- end }}/{{ if $gitrepo.repo -}}{{ $gitrepo.repo }}{{- else -}}{{ $gitrepo.name }}{{- end }}
+  {{- if $gitrepo.targetNamespace }}
+  targetNamespace: {{ $gitrepo.targetNamespace }}
+  {{- end }}
+  {{- if $gitrepo.imageScanInterval }}
+  imageScanInterval: {{ $gitrepo.imageScanInterval }}
+  {{- end }}
+  {{- if $gitrepo.clientSecretName }}
+  clientSecretName: {{ $gitrepo.clientSecretName }}
+  {{- end }}
+  {{- if $gitrepo.imageScanCommit }}
+  imageScanCommit:
+    authorName: "{{ $gitrepo.imageScanCommit.authorName }}"
+    authorEmail: "{{ $gitrepo.imageScanCommit.authorEmail }}"
+    messageTemplate: "{{ $gitrepo.imageScanCommit.messageTemplate }}"
+  {{- end }}
+  {{- if $gitrepo.ociRegistrySecret }}
+  ociRegistrySecret: {{ $gitrepo.ociRegistrySecret }}
+  {{- end }}
+  correctDrift:
+    enabled: true
+  {{- if hasKey $gitrepo "keepResources" }}
+  keepResources: {{ $gitrepo.keepResources }}
+  {{- end }}
+  {{- if ne $gitrepo.namespace "fleet-local" }}
+  targets:
+    {{- if $gitrepo.clusterGroups }}
+    {{- range $item := $gitrepo.clusterGroups }}
+    - clusterGroup: {{ $item }}
+    {{- end }}
+    {{- end }}
+    {{- if $gitrepo.clusterSelector }}
+    - name: cluster-selector
+      clusterSelector:
+        matchLabels:
+          {{- range $key, $value := $gitrepo.clusterSelector }}
+          {{ $key }}: {{ $value }}
+          {{- end }}
+    {{- end }}
+    - clusterSelector:
+        matchLabels:
+          {{ $gitrepo.name }}: enabled
+      name: {{ $gitrepo.name }}
+    {{- if $gitrepo.targets }}
+    {{- range $item := $gitrepo.targets }}
+    - clusterSelector:
+        matchLabels:
+          {{ $item }}: enabled
+      name: {{ $item }}
+    {{- end }}
+    {{- end }}
+  {{- end }}
+  {{- end }}

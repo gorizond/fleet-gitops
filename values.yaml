@@ -1,0 +1,5 @@
+gitrepos:
+  # fleet-local
+  - name: fleet-cert-manager
+    description: TLS + letsencrypt
+    namespace: fleet-local
