@@ -1,0 +1,6 @@
+defaultNamespace: cattle-ui-plugin-system
+
+helm:
+  releaseName: makecloud-node-driver
+  repo: https://gorizond.github.io/docker-machine-driver-makecloud
+  chart: makecloud-node-driver
