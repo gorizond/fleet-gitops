@@ -31,6 +31,11 @@ gitrepos:
       authorName: Fleet Bot
       messageTemplate: 'chore(fleet): ImageScan update image'
     imageScanInterval: 15s
+  - name: jspolicy-for-autoscaler
+    description: Generate autoscaler for all clusters
+    namespace: fleet-local
+    paths:
+      - policy
 helmrepos:
   # fleet-local
   - name: jspolicy
