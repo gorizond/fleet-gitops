@@ -47,11 +47,11 @@ helmrepos:
       chart: jspolicy
       values:
         replicaCount: 1
-  - name: docker-machine-driver-makecloud
+  - name: makecloud-node-driver
     description: Rancher docker machine driver for makecloud.ru with UI (machine-config + cloud-credential)
     namespace: cattle-ui-plugin-system
     helm:
-      releaseName: docker-machine-driver-makecloud
+      releaseName: makecloud-node-driver
       repo: https://gorizond.github.io/docker-machine-driver-makecloud
       chart: makecloud-node-driver
       version: 0.1.3
