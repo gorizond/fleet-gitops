@@ -38,6 +38,10 @@ spec:
     authorEmail: "{{ $gitrepo.imageScanCommit.authorEmail }}"
     messageTemplate: "{{ $gitrepo.imageScanCommit.messageTemplate }}"
   {{- end }}
+  {{- if $gitrepo.paths }}
+  paths:
+{{- toYaml $gitrepo.paths | nindent 4 }}
+  {{- end }}
   {{- if $gitrepo.ociRegistrySecret }}
   ociRegistrySecret: {{ $gitrepo.ociRegistrySecret }}
   {{- end }}

@@ -6,6 +6,13 @@ gitrepos:
   - name: fleet-workspace-controller
     description: Split fleet workspaces per users with roles
     namespace: fleet-local
+    paths:
+      - charts/fleet-workspace-controller
+  - name: fleet-gorizond-cluster
+    description: k3s/headscale api saas
+    namespace: fleet-local
+    paths:
+      - charts
 helmrepos:
   # fleet-local
   - name: jspolicy
