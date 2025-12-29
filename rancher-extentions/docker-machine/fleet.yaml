@@ -4,3 +4,11 @@ helm:
   releaseName: makecloud-node-driver
   repo: https://gorizond.github.io/docker-machine-driver-makecloud
   chart: makecloud-node-driver
+
+diff:
+  comparePatches:
+    - apiVersion: management.cattle.io/v3
+      kind: NodeDriver
+      name: makecloud
+      operations:
+      - {"op": "remove", "path": "/spec"}
