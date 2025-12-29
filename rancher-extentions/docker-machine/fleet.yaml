@@ -11,4 +11,9 @@ diff:
       kind: NodeDriver
       name: makecloud
       operations:
-      - {"op": "remove", "path": "/spec"}
+      - {"op": "remove", "path": "/spec/builtin"}
+      - {"op": "remove", "path": "/spec/checksum"}
+      - {"op": "remove", "path": "/spec/description"}
+      - {"op": "remove", "path": "/spec/externalId"}
+      - {"op": "remove", "path": "/spec/uiUrl"}
+      - {"op": "remove", "path": "/spec/whitelistDomains"}
