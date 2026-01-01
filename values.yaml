@@ -39,6 +39,9 @@ gitrepos:
   - name: fleet-clusters
     description: Gorizond clusters (data + runtime)
     namespace: fleet-local
+  # fleet-default
+  - name: fleet-cert-manager
+    description: TLS + letsencrypt
 helmrepos:
   # fleet-local
   - name: jspolicy
