@@ -64,3 +64,6 @@ helmrepos:
       repo: https://charts.longhorn.io
       chart: longhorn
       version: 1.10.1
+      values:
+        defaultSettings:
+          kubernetesClusterAutoscalerEnabled: true
