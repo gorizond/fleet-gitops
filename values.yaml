@@ -42,6 +42,8 @@ gitrepos:
   # fleet-default
   - name: fleet-cert-manager
     description: TLS + letsencrypt
+  - name: fleet-gorizond-database
+    description: Databases for gorizond k3s/headscale saas
 helmrepos:
   # fleet-local
   - name: jspolicy
