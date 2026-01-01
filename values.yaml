@@ -36,6 +36,9 @@ gitrepos:
     namespace: fleet-local
     paths:
       - policy
+  - name: fleet-clusters
+    description: Gorizond clusters (data + runtime)
+    namespace: fleet-local
 helmrepos:
   # fleet-local
   - name: jspolicy
