@@ -62,5 +62,3 @@ helmrepos:
       repo: https://charts.longhorn.io
       chart: longhorn
       version: v1.10.1
-      values:
-        replicaCount: 1
