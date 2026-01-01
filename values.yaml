@@ -53,3 +53,14 @@ helmrepos:
       chart: jspolicy
       values:
         replicaCount: 1
+  # fleet-default
+  - name: longhorn
+    description: Cloud native distributed block storage for Kubernetes
+    targetNamespace: longhorn-system
+    helm:
+      releaseName: longhorn
+      repo: https://charts.longhorn.io
+      chart: longhorn
+      version: v1.10.1
+      values:
+        replicaCount: 1
