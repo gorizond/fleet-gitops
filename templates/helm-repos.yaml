@@ -30,6 +30,9 @@ spec:
   {{- if $gitrepo.targetNamespace }}
   namespace: {{ $gitrepo.targetNamespace }}
   {{- end }}
+  {{- if $gitrepo.defaultNamespace }}
+  defaultNamespace: {{ $gitrepo.defaultNamespace }}
+  {{- end }}
   correctDrift:
     enabled: true
   {{- if hasKey $gitrepo "keepResources" }}

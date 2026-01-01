@@ -56,7 +56,7 @@ helmrepos:
   # fleet-default
   - name: longhorn
     description: Cloud native distributed block storage for Kubernetes
-    targetNamespace: longhorn-system
+    defaultNamespace: longhorn-system
     helm:
       releaseName: longhorn
       repo: https://charts.longhorn.io
