@@ -48,9 +48,9 @@ gitrepos:
     description: Kairos operator for OS artifacts and node operations
     repo_domain: https://github.com
     repo_path: gorizond
-    repo: fleet-gitops
+    repo: kairos-operator
     paths:
-      - upstream/kairos-operator
+      - config
     clusterSelector:
       gorizond.runtime: "true"
 helmrepos:
