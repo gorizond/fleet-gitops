@@ -50,7 +50,7 @@ spec:
       clusterSelector:
         matchLabels:
           {{- range $key, $value := $gitrepo.clusterSelector }}
-          {{ $key }}: {{ $value }}
+          {{ $key }}: {{ $value | quote }}
           {{- end }}
     {{- end }}
     - clusterSelector:
