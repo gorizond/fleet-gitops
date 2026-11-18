@@ -55,6 +55,41 @@ helmrepos:
       chart: jspolicy
       values:
         replicaCount: 1
+  - name: d7y-cattle-operator
+    description: Dragonfly P2P operator on the local management cluster (manager-only canary)
+    namespace: fleet-local
+    targetNamespace: d7y-system
+    helm:
+      releaseName: d7y-cattle-operator
+      repo: https://raw.githubusercontent.com/gorizond/d7y-cattle-operator/gh-pages
+      chart: d7y-cattle-operator
+      version: 0.1.34
+      values:
+        webhook:
+          enabled: false
+        image:
+          repository: ghcr.io/gorizond/d7y-cattle-operator
+          tag: v0.1.34
+        # manager.apiURL also becomes extras.ingress.rest.host.
+        manager:
+          grpcDomain: manager-grpc.koldun.negash.ru
+          apiURL: https://manager-api.koldun.negash.ru
+        # Required by operator config; unused by the manager-only canary.
+        nginx:
+          staticURL: https://static.koldun.negash.ru
+        # Secret in d7y-system with username/password for the manager API.
+        managerApiCredentialsSecret: dragonfly-manager-api
+        extras:
+          chart:
+            repo: https://raw.githubusercontent.com/gorizond/d7y-cattle-operator/gh-pages
+            version: 0.1.8
+          ingress:
+            controller: traefik
+            className: traefik
+            grpcEnabled: false
+            restEnabled: true
+            tlsSecret: dragonfly-p2p-mtls
+            traefikServersTransportEnabled: true
   # fleet-default
   - name: longhorn
     description: Cloud native distributed block storage for Kubernetes
